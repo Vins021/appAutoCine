@@ -1,3 +1,15 @@
 .linea{
 width: 100%;
 }
+
+.inicio{
+  width: 90%;
+  align-items: center;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.gifs {
+   display: flex;
+   align-items: center;
+}
