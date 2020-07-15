@@ -5,9 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatIconModule } from '@angular/material/icon';
+import { AcercaDeComponent } from './acerca-de/acerca-de.component';
 
 @NgModule({
-  declarations: [InicioComponent],
+  declarations: [InicioComponent, AcercaDeComponent],
   imports: [
     CommonModule,
     MatIconModule,
