@@ -15,6 +15,6 @@ import { AcercaDeComponent } from './acerca-de/acerca-de.component';
     MatGridListModule,
     BrowserAnimationsModule,
   ],
-  exports: [InicioComponent]
+  exports: [InicioComponent],
 })
-export class HomeModule { }
+export class HomeModule {}

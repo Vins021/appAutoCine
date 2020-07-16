@@ -1,0 +1,13 @@
+.button {
+    color: #690000;
+    text-decoration: none;
+}
+
+
+.card
+{
+ max-width: 400px;
+ min-width: 200px;
+ text-align: center;
+ justify-content: center;
+}

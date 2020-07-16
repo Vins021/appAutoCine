@@ -1,0 +1,25 @@
+<mat-grid-list cols="3" class="cont">
+  <mat-grid-tile *ngFor="let pro of datos">
+
+    <mat-card class="card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{pro.nombre}}</mat-card-title>
+        <mat-card-subtitle></mat-card-subtitle>
+      </mat-card-header>
+      <img
+        src="../../../assets/foodCine.png"  max-width="20px"
+        alt="{{pro.nombre}}">
+      <mat-card-content>
+        <p>
+          {{pro.descripcion}}
+        </p>
+        <h2><span>₡ </span>{{pro.precio}}</h2>
+      </mat-card-content>
+      <mat-card-actions>
+        <a mat-button class="button" [routerLink]="['/',pro.id]" routerLinkActive="active">Votar</a><a mat-button class="button" [routerLink]="['/producto',pro.id]" routerLinkActive="active">Info</a>
+      </mat-card-actions>
+    </mat-card>
+
+  </mat-grid-tile>
+</mat-grid-list>
