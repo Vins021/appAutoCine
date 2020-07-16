@@ -2,21 +2,21 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button>
-  <a mat-button routerLink="/" routerLinkActive="active">AutoCine <mat-icon>local_movies</mat-icon></a>
+  <a mat-button class="button" routerLink="/" routerLinkActive="active" style="text-decoration: none;">AutoCine <mat-icon>local_movies</mat-icon></a>
   <div class="spacer"></div>
 <button mat-button [matMenuTriggerFor]="menu">Ubicación</button>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item >Alajuela</button>
-  <button mat-menu-item>San Jose</button>
-  <button mat-menu-item>Heredia</button>
-  <button mat-menu-item>Cartago</button>
-  <button mat-menu-item>Guanacaste</button>
-  <button mat-menu-item>Limon</button>
-  <button mat-menu-item>Puntarenas</button>
+  <button mat-menu-item  class="button2" >Alajuela</button>
+  <button mat-menu-item class="button2" >San Jose</button>
+  <button mat-menu-item class="button2" >Heredia</button>
+  <button mat-menu-item class="button2" >Cartago</button>
+  <button mat-menu-item class="button2" >Guanacaste</button>
+  <button mat-menu-item class="button2" >Limon</button>
+  <button mat-menu-item class="button2" >Puntarenas</button>
 </mat-menu>
-  <a mat-button>Cartelera</a>
-  <a mat-button>Productos</a>
-  <a mat-button  routerLink="/home/acercade" routerLinkActive="active" >Acerca de</a>
+  <a mat-button class="button" >Cartelera</a>
+  <a mat-button class="button" >Productos</a>
+  <a mat-button  class="button"  routerLink="/home/acercade" routerLinkActive="active" >Acerca de</a>
   <a mat-raised-button color="accent">Login <mat-icon>login</mat-icon></a>
 
 </mat-toolbar>

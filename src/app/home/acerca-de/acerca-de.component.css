@@ -1,0 +1,15 @@
+.contenido{
+  /*align-content: center;
+  width: 100%;
+  text-align: center;
+  */
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.contenido2{
+  text-align: center;
+  width: 500px;
+  padding: 10px;
+  margin: 10px;
+}
