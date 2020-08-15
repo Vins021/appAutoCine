@@ -10,7 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductoModule } from './producto/producto.module';
 import { PeliculaModule } from './pelicula/pelicula.module';
 import { AppRoutingModule } from './app-routing.module';
-
+import { UserModule } from './user/user.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,13 +20,17 @@ import { AppRoutingModule } from './app-routing.module';
   ],
   imports: [
     BrowserModule,
+
     HttpClientModule,
+    ReactiveFormsModule,
     CoreModule,
     HomeModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     ProductoModule,
-    PeliculaModule
+    PeliculaModule,
+    UserModule,
+
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

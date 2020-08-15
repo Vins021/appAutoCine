@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <ul class="nav nav-tabs nav-pills">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/usuario/login']" routerLinkActive="active"
+            [class.active]="router.url == '/usuario'">Login</a>
+        </li>
+        <!-- Faltaba un / al iniciar el routerLink -->
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/usuario/registrar']" routerLinkActive="active">Registrarse</a>
+        </li>
+      </ul>
+      <app-user-login *ngIf="router.url == '/usuario'"></app-user-login>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

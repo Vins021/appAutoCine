@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
 import { GenericService } from 'src/app/share/generic.service';
+import { Subject } from 'rxjs';
 import { NotificacionService } from 'src/app/share/notificacion.service';
 import { takeUntil } from 'rxjs/operators';
 
@@ -20,7 +20,7 @@ export class ProductoIndexComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.listaProducto();
+    this, this.listaProducto();
   }
 
   ngOnDestroy() {

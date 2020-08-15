@@ -17,6 +17,12 @@
   <a mat-button class="button"   routerLink="/pelicula" routerLinkActive="active" >Cartelera</a>
   <a mat-button class="button"    routerLink="/producto" routerLinkActive="active">Productos</a>
   <a mat-button  class="button"  routerLink="/home/acercade" routerLinkActive="active" >Acerca de</a>
-  <a mat-raised-button color="accent">Login <mat-icon>login</mat-icon></a>
+  <span class="small font-weight-light" *ngIf="currentUser?.user">{{currentUser.user.name}} </span>
+  <a mat-raised-button color="accent" routerLink="/user/login" routerLinkActive="active" *ngIf="currentUser==null">Login
+    <mat-icon>account_circle
+    </mat-icon></a>
+    <a mat-raised-button color="accent" (click)="loguout()"
+      *ngIf="currentUser?.user">Logout <mat-icon>exit_to_app
+      </mat-icon></a>
 
 </mat-toolbar>

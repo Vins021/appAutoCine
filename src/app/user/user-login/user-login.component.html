@@ -1,0 +1,55 @@
+<div class="center" style="width: 600px;">
+
+  <mat-sidenav-container>
+    <mat-sidenav-content>
+      <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
+        <!-- Email -->
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Email"
+            [formControl]="email"
+            formControlName="email"
+          />
+        </mat-form-field>
+        <div class="col-sm-4">
+          <small class="text-danger" *ngIf="errorHandling('email', 'required')">
+            El email es requerido
+          </small>
+          <small class="text-danger" *ngIf="errorHandling('email', 'email')">
+            Verifique el formato del email
+          </small>
+        </div>
+
+        <!-- Password -->
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Password"
+            [formControl]="password"
+            formControlName="password"
+            [type]="hide ? 'password' : 'text'"
+          />
+          <button mat-icon-button matSuffix (click)="hide = !hide">
+            <mat-icon color="primary">{{
+              hide ? "visibility_off" : "visibility"
+            }}</mat-icon>
+          </button>
+        </mat-form-field>
+        <div class="col-sm-4">
+          <small
+            class="text-danger"
+            *ngIf="errorHandling('password', 'required')"
+          >
+            El password es requerido
+          </small>
+        </div>
+
+        <!-- Submit -->
+        <div class="button-wrapper">
+          <button mat-flat-button color="primary">Login</button>
+        </div>
+      </form>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
