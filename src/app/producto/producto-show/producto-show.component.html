@@ -8,10 +8,10 @@
       </mat-card-header>
       <img mat-card-image src="../../../assets/foodCine.png" alt="{{prod.nombre}}">
       <mat-card-content>
+        <h2>{{prod.tipo_producto.nombre}}</h2>
         <p>
           {{prod.descripcion}}
         </p>
-
         <mat-chip-list aria-label="Generos">
           <mat-chip color="accent" *ngFor="let g of prod.clasificacionp" selected>{{g.nombre}} </mat-chip>
         </mat-chip-list>

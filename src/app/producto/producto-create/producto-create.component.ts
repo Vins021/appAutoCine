@@ -1,26 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators,} from '@angular/forms';
 import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/share/authentication.service';
 import { NotificacionService } from 'src/app/share/notificacion.service';
 
 @Component({
-  selector: 'app-user-login',
-  templateUrl: './user-login.component.html',
-  styleUrls: ['./user-login.component.css'],
+  selector: 'app-producto-create',
+  templateUrl: './producto-create.component.html',
+  styleUrls: ['./producto-create.component.css'],
 })
-export class UserLoginComponent implements OnInit {
-
+export class ProductoCreateComponent implements OnInit {
   infoUsuario: any;
   error: any;
   formulario: FormGroup;
   destroy$: Subject<boolean> = new Subject<boolean>();
 
-//Material Forms
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', [Validators.required]);
-  hide = true;
+  nombre = new FormControl('', [Validators.required]);
+  descripcion = new FormControl('', [Validators.required]);
+  precio = new FormControl('', [Validators.required]);
 
   constructor(
     public fb: FormBuilder,
@@ -29,28 +27,23 @@ export class UserLoginComponent implements OnInit {
     private authService: AuthenticationService,
     private notificacion: NotificacionService
   ) {
-    //Si esta logueado que lo redireccione
-/*      if (authService.currentUserValue) {
-       this.router.navigate(['/']);
-     } */
     this.reactiveForm();
   }
-  /* Definir formulario y la validación */
+
+  ngOnInit(): void {
+    this.mensajes();
+  }
+
   reactiveForm() {
-    /*https://angular.io/guide/reactive-forms
-   https://angular.io/api/forms/Validators */
     this.formulario = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      descripcion: ['', [Validators.required]],
+      precio: ['', [Validators.required, Validators.min(0)]],
     });
   }
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'Email requerido';
-    }
-
-    return this.email.hasError('email') ? 'No es un correo Valido' : 't';
+  onReset() {
+    this.formulario.reset();
   }
 
   mensajes() {
@@ -76,9 +69,11 @@ export class UserLoginComponent implements OnInit {
       );
     }
   }
-  ngOnInit(): void {
-    this.mensajes();
-  }
+
+  public errorHandling = (control: string, error: string) => {
+    return this.formulario.controls[control].hasError(error);
+  };
+
   submitForm() {
     //Reglas de validación de Angular inválidas
     if (this.formulario.invalid) {
@@ -95,11 +90,11 @@ export class UserLoginComponent implements OnInit {
       }
     );
   }
-  onReset() {
-    this.formulario.reset();
+
+  getErrorMessage() {
+    if (this.nombre.hasError('required')) {
+      return 'Nombre requerido';
+    }
   }
-  /* Manejar errores de formulario en Angular */
-  public errorHandling = (control: string, error: string) => {
-    return this.formulario.controls[control].hasError(error);
-  };
+
 }

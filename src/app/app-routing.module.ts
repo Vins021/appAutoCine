@@ -9,6 +9,8 @@ import { ProductoShowComponent } from './producto/producto-show/producto-show.co
 import { PeliculaShowComponent } from './pelicula/pelicula-show/pelicula-show.component';
 import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
+import { ProductoAllComponent } from './producto/producto-all/producto-all.component';
+import { ProductoCreateComponent } from './producto/producto-create/producto-create.component';
 
 
 const routes: Routes = [
@@ -17,6 +19,8 @@ const routes: Routes = [
   { path: 'pelicula', component: PeliculaIndexComponent },
   { path: 'pelicula/:id', component: PeliculaShowComponent },
   { path: 'producto', component: ProductoIndexComponent },
+  { path: 'producto/all', component: ProductoAllComponent },
+  { path: 'producto/create', component: ProductoCreateComponent },
   { path: 'producto/:id', component: ProductoShowComponent },
   { path: 'user/registrar', component: UserCreateComponent },
   { path: 'user/login', component: UserLoginComponent },

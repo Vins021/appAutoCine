@@ -1,6 +1,6 @@
-<div class="center" style="width: 600px;">
+<div class="contenedor">
 
-  <mat-sidenav-container>
+  <mat-sidenav-container >
     <mat-sidenav-content>
       <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
         <!-- Email -->
@@ -12,7 +12,7 @@
             formControlName="email"
           />
         </mat-form-field>
-        <div class="col-sm-4">
+        <div>
           <small class="text-danger" *ngIf="errorHandling('email', 'required')">
             El email es requerido
           </small>
@@ -36,7 +36,7 @@
             }}</mat-icon>
           </button>
         </mat-form-field>
-        <div class="col-sm-4">
+        <div>
           <small
             class="text-danger"
             *ngIf="errorHandling('password', 'required')"
@@ -46,8 +46,8 @@
         </div>
 
         <!-- Submit -->
-        <div class="button-wrapper">
-          <button mat-flat-button color="primary">Login</button>
+        <div>
+          <button mat-flat-button color="accent">Login</button>
         </div>
       </form>
     </mat-sidenav-content>

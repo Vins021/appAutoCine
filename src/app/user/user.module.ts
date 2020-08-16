@@ -19,6 +19,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatInputModule,
     MatIconModule,
     MatSidenavModule,
-  ],
+  ],exports:[]
 })
 export class UserModule {}
