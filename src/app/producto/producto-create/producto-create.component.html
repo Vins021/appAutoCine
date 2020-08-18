@@ -1,45 +1,95 @@
 <div class="contenedor">
+  <div class="contenido">
+    <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
+      <!-- Nombre -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Nombre"
+          [formControl]="nombre"
+          formControlName="nombre"
+        />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('nombre', 'required')">
+          El nombre es requerido
+        </small>
+      </div>
 
-<div class="contenido">
+      <!-- Descripcion -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Descripcion"
+          [formControl]="descripcion"
+          formControlName="descripcion"
+        />
+      </mat-form-field>
+      <div>
+        <small
+          class="text-danger"
+          *ngIf="errorHandling('descripcion', 'required')"
+        >
+          La Descripcion es requerida
+        </small>
+      </div>
 
-<form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
+      <!-- Precio -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Precio"
+          [formControl]="precio"
+          formControlName="precio"
+          type="number"
+        />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
+          El precio es requerido
+        </small>
+      </div>
 
-        <!-- Nombre -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nombre" [formControl]="nombre" formControlName="nombre"/>
-        </mat-form-field>
-        <div>
-          <small class="text-danger " *ngIf="errorHandling('nombre','required')">
-            El nombre es requerido
-          </small>
-        </div>
+      <!-- Tipo Producto -->
+      <mat-form-field>
+        <mat-label>Tipo Producto</mat-label>
+        <mat-select
+          formControlName="tipo_producto_id"
+        >
+          <mat-option *ngFor="let tipo of tipoProd" [value]="tipo.id">
+            {{tipo.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-                <!-- Descripcion -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Descripcion" [formControl]="descripcion" formControlName="descripcion"/>
-        </mat-form-field>
-        <div>
-          <small class="text-danger" *ngIf="errorHandling('descripcion','required')">
-            La Descripcion es requerida
-          </small>
-        </div>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
+          Tipo de Producto Requerido
+        </small>
+      </div>
 
-                <!-- Precio -->
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="Precio" [formControl]="precio" formControlName="precio" type="number"/>
-        </mat-form-field>
-        <div>
-          <small class="text-danger" *ngIf="errorHandling('precio','required')">
-            El precio es requerido
-          </small>
-        </div>
+            <!-- Clasificacion Producto -->
+      <mat-form-field>
+        <mat-label>Tipo Producto</mat-label>
+        <mat-select multiple
+          formControlName="tipo_producto_id"
+        >
+          <mat-option *ngFor="let clas of clasProd" [value]="clas.id">
+            {{clas.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
-        <!-- Submit -->
-        <div class="button-wrapper">
-          <button mat-flat-button color="primary">Crear</button>
-        </div>
-      </form>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
+          Tipo de Producto Requerido
+        </small>
+      </div>
 
-
-</div>
+      <!-- Submit -->
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary">Crear</button>
+      </div>
+    </form>
+  </div>
 </div>

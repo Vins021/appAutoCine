@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/share/authentication.service';
 import { NotificacionService } from 'src/app/share/notificacion.service';
+import { takeUntil } from 'rxjs/operators';
+import { GenericService } from 'src/app/share/generic.service';
 
 @Component({
   selector: 'app-producto-create',
@@ -13,19 +15,23 @@ import { NotificacionService } from 'src/app/share/notificacion.service';
 export class ProductoCreateComponent implements OnInit {
   infoUsuario: any;
   error: any;
+  tipoProd: any;
+  clasProd: any;
   formulario: FormGroup;
   destroy$: Subject<boolean> = new Subject<boolean>();
-
   nombre = new FormControl('', [Validators.required]);
   descripcion = new FormControl('', [Validators.required]);
   precio = new FormControl('', [Validators.required]);
+  estado_id = new FormControl('', [Validators.required]);
+  tipo_producto_id = new FormControl('', [Validators.required]);
 
   constructor(
     public fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private authService: AuthenticationService,
-    private notificacion: NotificacionService
+    private notificacion: NotificacionService,
+    private gService: GenericService,
   ) {
     this.reactiveForm();
   }
@@ -39,7 +45,42 @@ export class ProductoCreateComponent implements OnInit {
       nombre: ['', [Validators.required]],
       descripcion: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.min(0)]],
+      tipo_producto_id: ['', [Validators.required, Validators.min(0)]],
+      estado_id: ['', [Validators.required, Validators.min(0)]],
     });
+    this.getTipo_producto();
+    this.getClasificacionp();
+  }
+
+
+  getTipo_producto(){
+    this.gService
+      .list('/AutoCine/Producto/TipoProducto')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.tipoProd = data;
+        },
+        (error: any) => {
+          this.notificacion.mensaje(error.message, error.name, 'error');
+        }
+      );
+  }
+
+  getClasificacionp() {
+    this.gService
+      .list('/AutoCine/Producto/Clasificacionp')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.clasProd = data;
+        },
+        (error: any) => {
+          this.notificacion.mensaje(error.message, error.name, 'error');
+        }
+      );
   }
 
   onReset() {
