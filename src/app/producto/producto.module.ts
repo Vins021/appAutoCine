@@ -16,6 +16,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent],
@@ -31,6 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     MatInputModule,
     ReactiveFormsModule,
     MatSelectModule,
+    MatSlideToggleModule,
   ],
   exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent],
 })

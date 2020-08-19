@@ -16,6 +16,9 @@
         </small>
       </div>
 
+
+
+
       <!-- Descripcion -->
       <mat-form-field class="example-full-width">
         <input
@@ -70,25 +73,33 @@
 
             <!-- Clasificacion Producto -->
       <mat-form-field>
-        <mat-label>Tipo Producto</mat-label>
+        <mat-label>Clasificación</mat-label>
         <mat-select multiple
-          formControlName="tipo_producto_id"
+          formControlName="clasificacionp"
         >
           <mat-option *ngFor="let clas of clasProd" [value]="clas.id">
             {{clas.nombre}}
           </mat-option>
         </mat-select>
       </mat-form-field>
+        <div>
 
+      <mat-slide-toggle
+          [color]="color"
+          [checked]="checked"
+          formControlName="estado_id">
+        Activo
+      </mat-slide-toggle>
+</div>
       <div>
         <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
-          Tipo de Producto Requerido
+          Clasificación Requerida
         </small>
       </div>
 
       <!-- Submit -->
       <div class="button-wrapper">
-        <button mat-flat-button color="primary">Crear</button>
+        <button mat-flat-button color="primary" type="submit">Crear</button>
       </div>
     </form>
   </div>

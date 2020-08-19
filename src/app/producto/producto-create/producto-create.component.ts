@@ -6,6 +6,7 @@ import { AuthenticationService } from 'src/app/share/authentication.service';
 import { NotificacionService } from 'src/app/share/notificacion.service';
 import { takeUntil } from 'rxjs/operators';
 import { GenericService } from 'src/app/share/generic.service';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-producto-create',
@@ -13,7 +14,7 @@ import { GenericService } from 'src/app/share/generic.service';
   styleUrls: ['./producto-create.component.css'],
 })
 export class ProductoCreateComponent implements OnInit {
-  infoUsuario: any;
+  producto:any;
   error: any;
   tipoProd: any;
   clasProd: any;
@@ -24,12 +25,16 @@ export class ProductoCreateComponent implements OnInit {
   precio = new FormControl('', [Validators.required]);
   estado_id = new FormControl('', [Validators.required]);
   tipo_producto_id = new FormControl('', [Validators.required]);
+  clasificacionp = new FormControl('', [Validators.required]);
+
+  //Control toggle
+  color: ThemePalette = 'accent';
+  checked = true;
 
   constructor(
     public fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthenticationService,
     private notificacion: NotificacionService,
     private gService: GenericService,
   ) {
@@ -46,7 +51,8 @@ export class ProductoCreateComponent implements OnInit {
       descripcion: ['', [Validators.required]],
       precio: ['', [Validators.required, Validators.min(0)]],
       tipo_producto_id: ['', [Validators.required, Validators.min(0)]],
-      estado_id: ['', [Validators.required, Validators.min(0)]],
+      estado_id: ['', [Validators.required]],
+      clasificacionp: ['', [Validators.required]],
     });
     this.getTipo_producto();
     this.getClasificacionp();
@@ -116,16 +122,16 @@ export class ProductoCreateComponent implements OnInit {
   };
 
   submitForm() {
-    //Reglas de validación de Angular inválidas
-    if (this.formulario.invalid) {
-      return;
-    }
-    //console.log(this.formulario.value);
-    this.authService.loginUser(this.formulario.value).subscribe(
+    console.log(this.formulario.value);
+
+    this.gService.create('/AutoCine/Producto', this.formulario.value).subscribe(
       (respuesta: any) => {
-        (this.infoUsuario = respuesta), this.router.navigate(['/']);
+        this.producto = respuesta;
+        this.router.navigate(['/producto/all'], {
+          queryParams: { register: 'true' },
+        });
       },
-      (error: any) => {
+      (error) => {
         this.error = error;
         this.notificacion.msjValidacion(this.error);
       }

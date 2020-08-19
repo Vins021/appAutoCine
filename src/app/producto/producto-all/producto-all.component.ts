@@ -3,6 +3,7 @@ import { NotificacionService } from 'src/app/share/notificacion.service';
 import { GenericService } from 'src/app/share/generic.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-producto-all',
@@ -16,7 +17,9 @@ export class ProductoAllComponent implements OnInit {
   displayedColumns: string[] = ['nombre', 'descripcion', 'precio','estado','accion'];
   constructor(
     private gService: GenericService,
-    private notificacion: NotificacionService
+    private notificacion: NotificacionService,
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
 
@@ -50,6 +53,8 @@ export class ProductoAllComponent implements OnInit {
       );
   }
 
-
+actualizarProducto(id:number){
+  this.router.navigate(['/AutoCine/Producto/Update',id],{relativeTo:this.route})
+}
 
 }

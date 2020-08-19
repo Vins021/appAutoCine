@@ -15,15 +15,15 @@ import { ProductoCreateComponent } from './producto/producto-create/producto-cre
 
 const routes: Routes = [
   { path: 'home', component: InicioComponent },
-  { path: 'home/acercade', component: AcercaDeComponent },
   { path: 'pelicula', component: PeliculaIndexComponent },
-  { path: 'pelicula/:id', component: PeliculaShowComponent },
   { path: 'producto', component: ProductoIndexComponent },
-  { path: 'producto/all', component: ProductoAllComponent },
-  { path: 'producto/create', component: ProductoCreateComponent },
-  { path: 'producto/:id', component: ProductoShowComponent },
+  { path: 'home/acercade', component: AcercaDeComponent },
   { path: 'user/registrar', component: UserCreateComponent },
   { path: 'user/login', component: UserLoginComponent },
+  { path: 'producto/all', component: ProductoAllComponent },
+  { path: 'producto/create', component: ProductoCreateComponent },
+  { path: 'pelicula/:id', component: PeliculaShowComponent },
+  { path: 'producto/:id', component: ProductoShowComponent },
 
   /*   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component:PageNotFoundComponent }, */

@@ -8,9 +8,9 @@ import { ProductoCreateComponent } from './producto-create/producto-create.compo
 
 const routes: Routes = [
   { path: 'producto', component: ProductoIndexComponent },
-  { path: 'producto/:id', component: ProductoShowComponent },
   { path: 'producto/all', component: ProductoAllComponent },
   { path: 'producto/create', component: ProductoCreateComponent },
+  { path: 'producto/:id', component: ProductoShowComponent },
 ];
 
 @NgModule({

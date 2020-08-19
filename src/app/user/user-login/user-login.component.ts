@@ -90,6 +90,7 @@ export class UserLoginComponent implements OnInit {
         (this.infoUsuario = respuesta), this.router.navigate(['/']);
       },
       (error: any) => {
+        console.log(this.formulario.value);
         this.error = error;
         this.notificacion.msjValidacion(this.error);
       }

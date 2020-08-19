@@ -1,6 +1,6 @@
 <div class="contenedor">
   <div class="nuevo">
-    <button mat-stroked-button class="mat-elevation-z8" color="warn"routerLink="/producto/create" routerLinkActive="active" ><mat-icon>add</mat-icon> Nuevo</button>
+    <button mat-stroked-button class="mat-elevation-z8" color="warn" routerLink="/producto/create" routerLinkActive="active" ><mat-icon>add</mat-icon> Nuevo</button>
   </div>
   <div class="tabla">
     <mat-table [dataSource]="datos" class="mat-elevation-z8">
@@ -27,7 +27,7 @@
       <ng-container matColumnDef="accion">
         <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
         <mat-cell *matCellDef="let pro">
-          <button mat-icon-button color="warn" >
+          <button mat-icon-button color="warn" [routerLink]="['../update/',pro.id]" routerLinkActive="active">
             <mat-icon>edit</mat-icon>
           </button>
         </mat-cell>
