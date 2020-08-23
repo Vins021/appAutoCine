@@ -85,6 +85,7 @@ temp:[1,2];
 estado_id: [this.checked, [Validators.required]],
       clasificacionp: [this.datos.clasificacionp, [Validators.required]],
     });
+      this.clasificacionp['clasificacionp'].setValue(1);
     if (this.estadoInt == 1) {
       this.checked = true;
 

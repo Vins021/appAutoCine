@@ -12,6 +12,8 @@ import { PeliculaModule } from './pelicula/pelicula.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UserModule } from './user/user.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UbicacionModule } from './ubicacion/ubicacion.module';
+import { FuncionModule } from './funcion/funcion.module';
 
 
 @NgModule({
@@ -28,9 +30,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     ProductoModule,
     PeliculaModule,
+    UbicacionModule,
     UserModule,
 
     AppRoutingModule,
+
+    FuncionModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

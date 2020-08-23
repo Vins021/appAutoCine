@@ -1,0 +1,27 @@
+<div class="contenedor">
+
+  <mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+  [colspan]=1
+  [rowspan]=3
+      *ngFor="let ubic of datos">
+<mat-card class="card mat-elevation-z8">
+  <mat-card-header>
+    <h1>{{ubic.nombre}}</h1>
+  </mat-card-header>
+  <mat-card-content>
+  <img  src="../../../assets/map.svg" width="120px" height="100px" alt="Ubicacion">
+  </mat-card-content>
+      <mat-card-actions>
+        <a mat-button class="button" [routerLink]="['/cartelera/',ubic.id]" routerLinkActive="active">Ver Cartelera</a>
+      </mat-card-actions>
+</mat-card>
+
+
+
+
+  </mat-grid-tile>
+</mat-grid-list>
+
+
+</div>

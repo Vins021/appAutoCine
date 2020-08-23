@@ -1,22 +1,20 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NotificacionService } from 'src/app/share/notificacion.service';
-import { GenericService } from 'src/app/share/generic.service';
-import { takeUntil } from 'rxjs/operators';
+import { Component, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
+import { GenericService } from 'src/app/share/generic.service';
+import { NotificacionService } from 'src/app/share/notificacion.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-producto-all',
-  templateUrl: './producto-all.component.html',
-  styleUrls: ['./producto-all.component.css']
+  selector: 'app-ubicacion-index',
+  templateUrl: './ubicacion-index.component.html',
+  styleUrls: ['./ubicacion-index.component.css']
 })
-export class ProductoAllComponent implements OnInit {
+export class UbicacionIndexComponent implements OnInit {
   datos: any;
   error: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
-  displayedColumns: string[] = ['nombre', 'descripcion', 'precio','estado','accion'];
-
-
+  displayedColumns: string[] = ['nombre', 'descripcion', 'precio', 'estado', 'accion'];
 
   constructor(
     private gService: GenericService,
@@ -25,11 +23,8 @@ export class ProductoAllComponent implements OnInit {
     private route: ActivatedRoute,
   ) { }
 
-
-
-
   ngOnInit(): void {
-    this , this.listaProducto();
+    this, this.listaUbicacion();
   }
 
 
@@ -41,9 +36,9 @@ export class ProductoAllComponent implements OnInit {
 
 
 
-  listaProducto() {
+  listaUbicacion() {
     this.gService
-      .list('/AutoCine/Producto/all')
+      .list('/AutoCine/Ubicacion')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (data: any) => {
@@ -55,6 +50,5 @@ export class ProductoAllComponent implements OnInit {
         }
       );
   }
-
 
 }

@@ -1,12 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-
-import { ProductoShowComponent } from './producto-show/producto-show.component';
-import { ProductoIndexComponent } from './producto-index/producto-index.component';
-import { ProductoCreateComponent } from './producto-create/producto-create.component';
-import { ProductoUpdateComponent } from './producto-update/producto-update.component';
-import { ProductoAllComponent } from './producto-all/producto-all.component';
+import { FuncionIndexComponent } from './funcion-index/funcion-index.component';
+import { FuncionCreateComponent } from './funcion-create/funcion-create.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
@@ -19,9 +15,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { FuncionUbicacionComponent } from './funcion-ubicacion/funcion-ubicacion.component';
+
 
 @NgModule({
-  declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent],
+  declarations: [FuncionIndexComponent, FuncionCreateComponent, FuncionUbicacionComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -37,6 +35,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSlideToggleModule,
     MatPaginatorModule,
   ],
-  exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent],
+  exports: [FuncionIndexComponent, FuncionCreateComponent, FuncionUbicacionComponent]
 })
-export class ProductoModule {}
+export class FuncionModule { }

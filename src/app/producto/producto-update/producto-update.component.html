@@ -59,7 +59,7 @@
       <mat-form-field>
         <mat-label>Tipo Producto</mat-label>
         <mat-select formControlName="tipo_producto_id" >
-          <mat-option *ngFor="let tipo of tipoProd" [value]="tipo.id" >
+          <mat-option *ngFor="let tipo of tipoProd" selected [value]="tipo.id" >
             {{ tipo.nombre }}
           </mat-option>
         </mat-select>

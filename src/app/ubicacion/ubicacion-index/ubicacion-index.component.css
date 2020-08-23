@@ -1,0 +1,19 @@
+.contenedor{
+ margin: 30px;
+ text-align: center;
+ justify-content: center;
+}
+
+.nuevo{
+  margin-bottom: 30px;
+}
+
+.card{
+  padding: 30px;
+   text-align: center;
+ justify-content: center;
+}
+.button {
+    color: #690000;
+    text-decoration: none;
+}

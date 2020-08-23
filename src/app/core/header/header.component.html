@@ -4,16 +4,7 @@
   </button>
   <a mat-button class="button" routerLink="/" routerLinkActive="active" style="text-decoration: none;">AutoCine <mat-icon>local_movies</mat-icon></a>
   <div class="spacer"></div>
-<button mat-button [matMenuTriggerFor]="menu">Ubicación</button>
-<mat-menu #menu="matMenu">
-  <button mat-menu-item  class="button2" >Alajuela</button>
-  <button mat-menu-item class="button2" >San Jose</button>
-  <button mat-menu-item class="button2" >Heredia</button>
-  <button mat-menu-item class="button2" >Cartago</button>
-  <button mat-menu-item class="button2" >Guanacaste</button>
-  <button mat-menu-item class="button2" >Limon</button>
-  <button mat-menu-item class="button2" >Puntarenas</button>
-</mat-menu>
+<a mat-button  class="button"  routerLink="/ubicacion" routerLinkActive="active" >Ubicacion</a>
 <button mat-button [matMenuTriggerFor]="mantenimiento">Mantenimientos</button>
 <mat-menu #mantenimiento="matMenu">
   <button mat-menu-item class="button2"  routerLink="/producto/all" routerLinkActive="active">Admin Productos</button>
