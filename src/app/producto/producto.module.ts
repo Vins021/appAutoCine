@@ -17,9 +17,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { ProductoUpdateComponent } from './producto-update/producto-update.component';
 
 @NgModule({
-  declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent],
+  declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -33,7 +35,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     ReactiveFormsModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatPaginatorModule,
   ],
-  exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent],
+  exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent],
 })
 export class ProductoModule {}

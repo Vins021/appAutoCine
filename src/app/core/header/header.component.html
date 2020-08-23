@@ -14,10 +14,12 @@
   <button mat-menu-item class="button2" >Limon</button>
   <button mat-menu-item class="button2" >Puntarenas</button>
 </mat-menu>
+<button mat-button [matMenuTriggerFor]="mantenimiento">Mantenimientos</button>
+<mat-menu #mantenimiento="matMenu">
+  <button mat-menu-item class="button2"  routerLink="/producto/all" routerLinkActive="active">Admin Productos</button>
+  <!-- <a mat-button class="button"    routerLink="/producto/create" routerLinkActive="active">Crear</a> -->
+</mat-menu>
   <a mat-button class="button"   routerLink="/pelicula" routerLinkActive="active" >Cartelera</a>
-
-  <a mat-button class="button"    routerLink="/producto/all" routerLinkActive="active">Admin Productos</a>
-  <a mat-button class="button"    routerLink="/producto/create" routerLinkActive="active">Crear</a>
 
   <a mat-button class="button"    routerLink="/producto" routerLinkActive="active">Productos</a>
   <a mat-button  class="button"  routerLink="/home/acercade" routerLinkActive="active" >Acerca de</a>

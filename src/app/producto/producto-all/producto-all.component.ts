@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NotificacionService } from 'src/app/share/notificacion.service';
 import { GenericService } from 'src/app/share/generic.service';
 import { takeUntil } from 'rxjs/operators';
@@ -15,6 +15,9 @@ export class ProductoAllComponent implements OnInit {
   error: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
   displayedColumns: string[] = ['nombre', 'descripcion', 'precio','estado','accion'];
+
+
+
   constructor(
     private gService: GenericService,
     private notificacion: NotificacionService,
@@ -53,8 +56,8 @@ export class ProductoAllComponent implements OnInit {
       );
   }
 
-actualizarProducto(id:number){
+/* actualizarProducto(id:number){
   this.router.navigate(['/AutoCine/Producto/Update',id],{relativeTo:this.route})
-}
+} */
 
 }

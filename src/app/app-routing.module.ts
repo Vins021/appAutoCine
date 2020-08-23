@@ -11,6 +11,7 @@ import { UserCreateComponent } from './user/user-create/user-create.component';
 import { UserLoginComponent } from './user/user-login/user-login.component';
 import { ProductoAllComponent } from './producto/producto-all/producto-all.component';
 import { ProductoCreateComponent } from './producto/producto-create/producto-create.component';
+import { ProductoUpdateComponent } from './producto/producto-update/producto-update.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'producto/create', component: ProductoCreateComponent },
   { path: 'pelicula/:id', component: PeliculaShowComponent },
   { path: 'producto/:id', component: ProductoShowComponent },
+  { path: 'producto/update/:id', component: ProductoUpdateComponent },
 
   /*   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component:PageNotFoundComponent }, */

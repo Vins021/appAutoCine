@@ -2,32 +2,32 @@
   <div class="nuevo">
     <button mat-stroked-button class="mat-elevation-z8" color="warn" routerLink="/producto/create" routerLinkActive="active" ><mat-icon>add</mat-icon> Nuevo</button>
   </div>
-  <div class="tabla">
-    <mat-table [dataSource]="datos" class="mat-elevation-z8">
+  <div class="mat-elevation-z8">
+    <mat-table [dataSource]="datos" >
       <ng-container matColumnDef="nombre">
-        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </mat-header-cell>
         <mat-cell *matCellDef="let pro"> {{ pro.nombre }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="descripcion">
-        <mat-header-cell *matHeaderCellDef> Descripcion </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
         <mat-cell *matCellDef="let pro"> {{ pro.descripcion }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="precio">
-        <mat-header-cell *matHeaderCellDef> Precio </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
         <mat-cell *matCellDef="let pro"><span> ₡ </span> {{ pro.precio }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="estado">
-        <mat-header-cell *matHeaderCellDef> Estado </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Estado </mat-header-cell>
         <mat-cell *matCellDef="let pro"> {{ pro.estado.nombre }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="accion">
         <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
         <mat-cell *matCellDef="let pro">
-          <button mat-icon-button color="warn" [routerLink]="['../update/',pro.id]" routerLinkActive="active">
+          <button mat-icon-button color="warn" [routerLink]="['/producto/update/',pro.id]" routerLinkActive="active">
             <mat-icon>edit</mat-icon>
           </button>
         </mat-cell>

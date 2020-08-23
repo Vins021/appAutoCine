@@ -1,0 +1,105 @@
+<div class="contenedor">
+  <div class="contenido">
+    <form
+      *ngIf="datos"
+      [formGroup]="formUpdate"
+      (ngSubmit)="submitForm()"
+      novalidate
+    >
+      <!-- ID -->
+
+      <input type="hidden" formControlName="id" [formControl]="id" />
+      <!-- Nombre -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Nombre"
+          formControlName="nombre"
+        />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('nombre', 'required')">
+          El nombre es requerido
+        </small>
+      </div>
+
+      <!-- Descripcion -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Descripcion"
+          formControlName="descripcion"
+        />
+      </mat-form-field>
+      <div>
+        <small
+          class="text-danger"
+          *ngIf="errorHandling('descripcion', 'required')"
+        >
+          La Descripcion es requerida
+        </small>
+      </div>
+
+      <!-- Precio -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          placeholder="Precio"
+          formControlName="precio"
+          type="number"
+        />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
+          El precio es requerido
+        </small>
+      </div>
+
+      <!-- Tipo Producto -->
+      <mat-form-field>
+        <mat-label>Tipo Producto</mat-label>
+        <mat-select formControlName="tipo_producto_id" >
+          <mat-option *ngFor="let tipo of tipoProd" [value]="tipo.id" >
+            {{ tipo.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
+          Tipo de Producto Requerido
+        </small>
+      </div>
+
+      <!-- Clasificacion Producto -->
+      <mat-form-field>
+        <mat-label>Clasificación</mat-label>
+        <mat-select  formControlName="clasificacionp" multiple>
+          <mat-option *ngFor="let clas of clasProd" [value]="clas.id" >
+            {{ clas.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('precio', 'required')">
+          Clasificación Requerida
+        </small>
+      </div>
+      <div>
+        <mat-slide-toggle
+          [color]="color"
+          [checked]="checked"
+          formControlName="estado_id"
+        >
+          Activo
+        </mat-slide-toggle>
+      </div>
+
+      <!-- Submit -->
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary" type="submit">Actualizar</button>
+      </div>
+    </form>
+  </div>
+</div>

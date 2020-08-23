@@ -41,6 +41,7 @@ export class ProductoShowComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this.datos = data;
+          console.log("Prueba: " + this.datos.value);
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
