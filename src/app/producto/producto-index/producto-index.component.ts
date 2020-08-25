@@ -45,10 +45,10 @@ export class ProductoIndexComponent implements OnInit {
   }
 
 
-  agregaCarrito(id: number) {
+/*   agregaCarrito(id: number) {
     HeaderComponent.listaCarrito.push(id);
     console.log(HeaderComponent.listaCarrito);
-  }
+  } */
 
 
 

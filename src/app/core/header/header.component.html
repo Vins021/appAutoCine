@@ -87,16 +87,16 @@
     class="button"
     routerLink="/home/acercade"
     routerLinkActive="active"
-    >Acerca de {{listaCarrito}}</a
+    >Acerca de</a
   >
-<a
+<!-- <a
     mat-raised-button
     color="accent"
     routerLink="/carrito"
     routerLinkActive="active"
-    ><mat-icon [matBadge]="listaCarrito?.length" matBadgeColor="warn">shopping_cart</mat-icon></a
-  >
-
+    >
+    <mat-icon [matBadge]="" matBadgeColor="warn">shopping_cart</mat-icon></a>
+ -->
   <span class="small font-weight-light" *ngIf="currentUser?.user"
     >{{ currentUser.user.name }}
   </span>

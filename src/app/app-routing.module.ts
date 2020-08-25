@@ -16,6 +16,7 @@ import { UbicacionIndexComponent } from './ubicacion/ubicacion-index/ubicacion-i
 import { FuncionIndexComponent } from './funcion/funcion-index/funcion-index.component';
 import { FuncionUbicacionComponent } from './funcion/funcion-ubicacion/funcion-ubicacion.component';
 import { ProductoInactivoComponent } from './producto/producto-inactivo/producto-inactivo.component';
+import { FuncionCreateComponent } from './funcion/funcion-create/funcion-create.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'producto', component: ProductoIndexComponent },
   { path: 'ubicacion', component: UbicacionIndexComponent },
   { path: 'funcion', component: FuncionIndexComponent },
+  { path: 'funcion/create', component: FuncionCreateComponent },
   { path: 'home/acercade', component: AcercaDeComponent },
   { path: 'user/registrar', component: UserCreateComponent },
   { path: 'user/login', component: UserLoginComponent },
@@ -34,6 +36,7 @@ const routes: Routes = [
   { path: 'funcion/:id', component: FuncionUbicacionComponent },
   { path: 'producto/:id', component: ProductoShowComponent },
   { path: 'producto/update/:id', component: ProductoUpdateComponent },
+  { path: 'funcion/create/:id', component: FuncionCreateComponent },
 
   /*   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '**', component:PageNotFoundComponent }, */

@@ -138,10 +138,5 @@ export class ProductoCreateComponent implements OnInit {
     );
   }
 
-  getErrorMessage() {
-    if (this.nombre.hasError('required')) {
-      return 'Nombre requerido';
-    }
-  }
 
 }

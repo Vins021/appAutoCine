@@ -13,13 +13,17 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FuncionUbicacionComponent } from './funcion-ubicacion/funcion-ubicacion.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
-  declarations: [FuncionIndexComponent, FuncionCreateComponent, FuncionUbicacionComponent],
+  declarations: [
+    FuncionIndexComponent,
+    FuncionCreateComponent,
+    FuncionUbicacionComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -36,6 +40,10 @@ import { MatDividerModule } from '@angular/material/divider';
     MatPaginatorModule,
     MatDividerModule,
   ],
-  exports: [FuncionIndexComponent, FuncionCreateComponent, FuncionUbicacionComponent]
+  exports: [
+    FuncionIndexComponent,
+    FuncionCreateComponent,
+    FuncionUbicacionComponent,
+  ],
 })
-export class FuncionModule { }
+export class FuncionModule {}

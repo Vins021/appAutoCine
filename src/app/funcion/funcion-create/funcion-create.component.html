@@ -1,1 +1,104 @@
-<p>funcion-create works!</p>
+<div class="contenedor">
+  <div class="contenido">
+    <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
+      <!-- Pelicula -->
+      <mat-form-field>
+        <mat-label>Pelicula</mat-label>
+        <mat-select formControlName="pelicula_id">
+          <mat-option *ngFor="let peli of peliculas" [value]="peli.id">
+            {{ peli.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <small
+          class="text-danger"
+          *ngIf="errorHandling('pelicula_id', 'required')"
+        >
+          Pelicula es Requerida
+        </small>
+      </div>
+
+      <!-- Ubicacion -->
+      <mat-form-field>
+        <mat-label>Ubicaciones</mat-label>
+        <mat-select multiple formControlName="ubicacion_id">
+          <mat-option *ngFor="let ubi of ubicaciones" [value]="ubi.id">
+            {{ ubi.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <small
+          class="text-danger"
+          *ngIf="errorHandling('ubicacion_id', 'required')"
+        >
+          Ubicaciones Requeridas
+        </small>
+      </div>
+
+      <!-- Fecha -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          type="datetime"
+          placeholder="Fecha"
+          [formControl]="fecha"
+          formControlName="fecha"
+        />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('fecha', 'required')">
+          La Fecha es requerida
+        </small>
+      </div>
+
+      <!-- Cantidad -->
+      <mat-form-field class="example-full-width">
+        <input
+          matInput
+          type="number"
+          placeholder="Cantidad"
+          [formControl]="cantidad"
+          formControlName="cantidad"
+        />
+      </mat-form-field>
+      <div>
+        <small
+          class="text-danger"
+          *ngIf="errorHandling('cantidad', 'required')"
+        >
+          La Cantidad es requerida
+        </small>
+      </div>
+
+      <!-- Disponible -->
+      <div>
+        <mat-slide-toggle
+          [color]="color"
+          [checked]="checked"
+          formControlName="disponible"
+        >
+          Venta
+        </mat-slide-toggle>
+      </div>
+
+      <!-- Estado -->
+      <div>
+        <mat-slide-toggle
+          [color]="color"
+          [checked]="checked2"
+          formControlName="estado_id"
+        >
+          Visible
+        </mat-slide-toggle>
+      </div>
+      <!-- Submit -->
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary" type="submit">Crear</button>
+      </div>
+    </form>
+  </div>
+</div>
