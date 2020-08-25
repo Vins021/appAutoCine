@@ -1,31 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-import { NotificacionService } from 'src/app/share/notificacion.service';
-import { Router, ActivatedRoute } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
 import { GenericService } from 'src/app/share/generic.service';
+import { NotificacionService } from 'src/app/share/notificacion.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-funcion-ubicacion',
-  templateUrl: './funcion-ubicacion.component.html',
-  styleUrls: ['./funcion-ubicacion.component.css']
+  selector: 'app-producto-inactivo',
+  templateUrl: './producto-inactivo.component.html',
+  styleUrls: ['./producto-inactivo.component.css']
 })
-export class FuncionUbicacionComponent implements OnInit {
+export class ProductoInactivoComponent implements OnInit {
   datos: any;
   error: any;
   destroy$: Subject<boolean> = new Subject<boolean>();
+  displayedColumns: string[] = ['nombre', 'descripcion', 'precio', 'estado', 'accion'];
+
+
 
   constructor(
     private gService: GenericService,
     private notificacion: NotificacionService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute,
+  ) { }
+
+
+
 
   ngOnInit(): void {
-    //Obtener Identificador
-    let id = +this.route.snapshot.paramMap.get('id');
-    //Obtener Producto
-    this, this.listaFuncion(id);
+    this, this.listaProducto();
   }
 
 
@@ -37,9 +41,9 @@ export class FuncionUbicacionComponent implements OnInit {
 
 
 
-  listaFuncion(id:any) {
+  listaProducto() {
     this.gService
-      .get('/AutoCine/Funcion', id)
+      .list('/AutoCine/Producto/inactivos')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (data: any) => {
@@ -51,4 +55,6 @@ export class FuncionUbicacionComponent implements OnInit {
         }
       );
   }
+
+
 }

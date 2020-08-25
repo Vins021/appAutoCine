@@ -1,19 +1,19 @@
-.contenedor{
- margin: 30px;
- text-align: center;
- justify-content: center;
+.contenedor {
+  margin: 30px;
+  text-align: center;
+  justify-content: center;
 }
 
-.nuevo{
+.nuevo {
   margin-bottom: 30px;
 }
 
-.card{
+.card {
   padding: 30px;
-   text-align: center;
- justify-content: center;
+  text-align: center;
+  justify-content: center;
 }
 .button {
-    color: #690000;
-    text-decoration: none;
+  color: #690000;
+  text-decoration: none;
 }

@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [PeliculaIndexComponent, PeliculaShowComponent],
@@ -22,7 +23,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatGridListModule,
     MatChipsModule,
     RouterModule,
-
+    MatDividerModule,
   ],
   exports: [PeliculaIndexComponent, PeliculaShowComponent],
 })

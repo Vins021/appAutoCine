@@ -3,6 +3,7 @@ import { GenericService } from 'src/app/share/generic.service';
 import { Subject } from 'rxjs';
 import { NotificacionService } from 'src/app/share/notificacion.service';
 import { takeUntil } from 'rxjs/operators';
+import { HeaderComponent } from '../../core/header/header.component';
 
 @Component({
   selector: 'app-producto-index',
@@ -42,4 +43,13 @@ export class ProductoIndexComponent implements OnInit {
         }
       );
   }
+
+
+  agregaCarrito(id: number) {
+    HeaderComponent.listaCarrito.push(id);
+    console.log(HeaderComponent.listaCarrito);
+  }
+
+
+
 }

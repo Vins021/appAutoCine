@@ -24,7 +24,7 @@ export class ProductoShowComponent implements OnInit {
   ngOnInit(): void {
     //Obtener Identificador
     let id = +this.route.snapshot.paramMap.get('id');
-    //Obtener Pelicula
+    //Obtener Producto
     this.obtenerProducto(id);
   }
 
@@ -41,7 +41,6 @@ export class ProductoShowComponent implements OnInit {
         (data: any) => {
           console.log(data);
           this.datos = data;
-          console.log("Prueba: " + this.datos.value);
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');

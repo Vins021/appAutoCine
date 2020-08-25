@@ -1,15 +1,4 @@
 <div class="contenedor">
-  <div class="nuevo">
-    <button
-      mat-stroked-button
-      class="mat-elevation-z8"
-      color="warn"
-      routerLink="/producto/create"
-      routerLinkActive="active"
-    >
-      <mat-icon>add</mat-icon> Nuevo
-    </button>
-  </div>
   <div class="mat-elevation-z8">
     <mat-table [dataSource]="datos">
       <ng-container matColumnDef="nombre">
@@ -62,3 +51,4 @@
     </mat-table>
   </div>
 </div>
+

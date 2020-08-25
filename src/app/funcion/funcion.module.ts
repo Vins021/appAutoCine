@@ -16,7 +16,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { FuncionUbicacionComponent } from './funcion-ubicacion/funcion-ubicacion.component';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [FuncionIndexComponent, FuncionCreateComponent, FuncionUbicacionComponent],
@@ -34,6 +34,7 @@ import { FuncionUbicacionComponent } from './funcion-ubicacion/funcion-ubicacion
     MatSelectModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    MatDividerModule,
   ],
   exports: [FuncionIndexComponent, FuncionCreateComponent, FuncionUbicacionComponent]
 })

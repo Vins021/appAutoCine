@@ -1,32 +1,69 @@
 <div class="contenedor">
   <div class="nuevo">
-    <button mat-stroked-button class="mat-elevation-z8" color="warn" routerLink="/funcion/create" routerLinkActive="active" ><mat-icon>add</mat-icon> Nuevo</button>
+    <button
+      mat-stroked-button
+      class="mat-elevation-z8"
+      color="warn"
+      routerLink="/funcion/create"
+      routerLinkActive="active"
+    >
+      <mat-icon>add</mat-icon> Nuevo
+    </button>
   </div>
   <div class="mat-elevation-z8">
-    <mat-table [dataSource]="datos" >
+    <mat-table [dataSource]="datos">
       <ng-container matColumnDef="fecha">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Fecha
+        </mat-header-cell>
         <mat-cell *matCellDef="let fun"> {{ fun.fecha }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="pelicula">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Pelicula </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Pelicula
+        </mat-header-cell>
         <mat-cell *matCellDef="let fun"> {{ fun.pelicula.nombre }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="ubicacion">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Ubicación
+        </mat-header-cell>
         <mat-cell *matCellDef="let fun"> {{ fun.ubicacion.nombre }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="cantidad">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Espacios </mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Espacios
+        </mat-header-cell>
         <mat-cell *matCellDef="let fun"> {{ fun.cantidad }} </mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="disponible">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> Venta </mat-header-cell>
-        <mat-cell *matCellDef="let fun"> {{ fun.disponible }} </mat-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Venta
+        </mat-header-cell>
+        <mat-cell *matCellDef="let fun">
+          <div *ngIf="fun.disponible == 1">
+            Disponible
+          </div>
+          <div *ngIf="fun.disponible == 2">
+            No Disponible
+          </div>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Estado
+        </mat-header-cell>
+        <mat-cell *matCellDef="let fun"> <div *ngIf="fun.estado.id == 1">
+            Visible
+          </div>
+          <div *ngIf="fun.estado.id == 2">
+            No Visible
+          </div> </mat-cell>
       </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

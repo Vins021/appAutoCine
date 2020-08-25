@@ -16,7 +16,7 @@ export class FuncionIndexComponent implements OnInit {
   error: any;
   disponibilidad:any;
   destroy$: Subject<boolean> = new Subject<boolean>();
-  displayedColumns: string[] = ['fecha', 'pelicula', 'ubicacion', 'cantidad', 'disponible'];
+  displayedColumns: string[] = ['fecha', 'pelicula', 'ubicacion', 'cantidad', 'disponible','estado'];
   //Control toggle
   color: ThemePalette = 'accent';
   checked = false;

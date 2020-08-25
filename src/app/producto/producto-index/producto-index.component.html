@@ -16,9 +16,12 @@
         </p>
         <h2><span>₡ </span>{{pro.precio}}</h2>
       </mat-card-content>
+     <mat-divider></mat-divider>
 
       <mat-card-actions>
-        <a mat-button class="button" [routerLink]="['/',pro.id]" routerLinkActive="active">Votar</a><a mat-button class="button" [routerLink]="['/producto',pro.id]" routerLinkActive="active">Info</a>
+        <a mat-button class="button" [routerLink]="['/',pro.id]" routerLinkActive="active">Votar</a>
+        <a mat-button class="button" [routerLink]="['/producto',pro.id]" routerLinkActive="active">Info</a>
+        <a mat-button class="button" (click)="agregaCarrito(pro.id)">Info</a>
       </mat-card-actions>
     </mat-card>
 

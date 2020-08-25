@@ -15,6 +15,7 @@ import { ProductoUpdateComponent } from './producto/producto-update/producto-upd
 import { UbicacionIndexComponent } from './ubicacion/ubicacion-index/ubicacion-index.component';
 import { FuncionIndexComponent } from './funcion/funcion-index/funcion-index.component';
 import { FuncionUbicacionComponent } from './funcion/funcion-ubicacion/funcion-ubicacion.component';
+import { ProductoInactivoComponent } from './producto/producto-inactivo/producto-inactivo.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'user/registrar', component: UserCreateComponent },
   { path: 'user/login', component: UserLoginComponent },
   { path: 'producto/all', component: ProductoAllComponent },
+  { path: 'producto/inactivo', component: ProductoInactivoComponent },
   { path: 'producto/create', component: ProductoCreateComponent },
   { path: 'pelicula/:id', component: PeliculaShowComponent },
   { path: 'funcion/:id', component: FuncionUbicacionComponent },

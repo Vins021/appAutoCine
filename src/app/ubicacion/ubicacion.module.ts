@@ -5,6 +5,7 @@ import { UbicacionRoutingModule } from './ubicacion-routing.module';
 import { UbicacionIndexComponent } from './ubicacion-index/ubicacion-index.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { MatCardModule } from '@angular/material/card';
     UbicacionRoutingModule,
     MatGridListModule,
     MatCardModule,
+    MatDividerModule,
   ],
   exports: [UbicacionIndexComponent]
 })

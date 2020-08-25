@@ -19,9 +19,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDividerModule } from '@angular/material/divider';
+import { ProductoInactivoComponent } from './producto-inactivo/producto-inactivo.component';
 
 @NgModule({
-  declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent],
+  declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent, ProductoInactivoComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -36,7 +38,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatSelectModule,
     MatSlideToggleModule,
     MatPaginatorModule,
+    MatDividerModule,
   ],
-  exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent],
+  exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent, ProductoInactivoComponent],
 })
 export class ProductoModule {}

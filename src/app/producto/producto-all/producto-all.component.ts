@@ -13,6 +13,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductoAllComponent implements OnInit {
   datos: any;
   error: any;
+  myArray:[];
   destroy$: Subject<boolean> = new Subject<boolean>();
   displayedColumns: string[] = ['nombre', 'descripcion', 'precio','estado','accion'];
 
@@ -38,7 +39,6 @@ export class ProductoAllComponent implements OnInit {
     this.destroy$.next(true);
     this.destroy$.unsubscribe();
   }
-
 
 
   listaProducto() {
