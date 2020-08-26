@@ -74,8 +74,8 @@
       <!-- Clasificacion Producto -->
       <mat-form-field>
         <mat-label>Clasificación</mat-label>
-        <mat-select  formControlName="clasificacionp" multiple>
-          <mat-option *ngFor="let clas of clasProd" [value]="clas.id" >
+        <mat-select  formControlName="clasificacionp"  multiple >
+          <mat-option *ngFor="let clas of clasProd" selected [value]="clas.id"  >
             {{ clas.nombre }}
           </mat-option>
         </mat-select>

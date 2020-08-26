@@ -123,7 +123,6 @@ export class ProductoCreateComponent implements OnInit {
 
   submitForm() {
     console.log(this.formulario.value);
-
     this.gService.create('/AutoCine/Producto', this.formulario.value).subscribe(
       (respuesta: any) => {
         this.producto = respuesta;

@@ -11,7 +11,7 @@ import { ThemePalette } from '@angular/material/core';
 @Component({
   selector: 'app-producto-update',
   templateUrl: './producto-update.component.html',
-  styleUrls: ['./producto-update.component.css']
+  styleUrls: ['./producto-update.component.css'],
 })
 export class ProductoUpdateComponent implements OnInit {
   producto: any;
@@ -19,7 +19,8 @@ export class ProductoUpdateComponent implements OnInit {
   error: any;
   tipoProd: any;
   clasProd: any;
-  estadoInt:any;
+  estadoInt: any;
+  idArray: any []=[];
   formUpdate: FormGroup;
   destroy$: Subject<boolean> = new Subject<boolean>();
   id = new FormControl('', [Validators.required]);
@@ -29,7 +30,7 @@ export class ProductoUpdateComponent implements OnInit {
   estado_id = new FormControl('', [Validators.required]);
   tipo_producto_id = new FormControl('', [Validators.required]);
   clasificacionp = new FormControl('', [Validators.required]);
-temp:[1,2];
+  temp: [1,2];
   //Control toggle
   color: ThemePalette = 'accent';
   checked = false;
@@ -39,8 +40,8 @@ temp:[1,2];
     public fb: FormBuilder,
     private notificacion: NotificacionService,
     private route: ActivatedRoute,
-    private router: Router,
-  ) { }
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     //Obtener Identificador
@@ -48,7 +49,6 @@ temp:[1,2];
     //Obtener Pelicula
     this.obtenerProducto(id);
   }
-
 
   obtenerProducto(id: any) {
     this.gService
@@ -65,9 +65,38 @@ temp:[1,2];
         }
       );
   }
-
-
   reactiveForm() {
+    this.getTipo_producto();
+    this.getClasificacionp();
+    if (this.datos) {
+      //valida si estado es 1 para poner el controlador en True
+      if(this.datos.estado_id==1){
+      this.checked = true;
+      }
+      //Crea un array de IDs de la base de datos para seleccionarlos en la lista
+      for (let i = 0; i < this.datos.clasificacionp.length; i++) {
+        this.idArray.push(this.datos.clasificacionp[i].id);
+      }
+
+      this.formUpdate = this.fb.group({
+        id: [this.datos.id, [Validators.required]],
+        nombre: [this.datos.nombre, [Validators.required]],
+        descripcion: [this.datos.descripcion, [Validators.required]],
+        precio: [this.datos.precio, [Validators.required, Validators.min(0)]],
+        tipo_producto_id: [
+          this.datos.tipo_producto_id,
+          [Validators.required, Validators.min(0)],
+        ],
+        estadoInt: [this.datos.estado_id, [Validators.required]],
+        estado_id: [this.checked, [Validators.required]],
+        //Asigna el Array de la DB para cargarlo en el Formulario
+        clasificacionp: [this.idArray, [Validators.required]],
+      });
+      console.log('Checked: ' + this.checked);
+    }
+  }
+
+  /*   reactiveForm() {
     this.getTipo_producto();
     this.getClasificacionp();
     if(this.datos){
@@ -75,23 +104,21 @@ temp:[1,2];
         this.checked=true;
       }
       console.log(this.datos.tipo_producto_id);
-    this.formUpdate                                                                                                                                                                                                                                                                                                                                                                                = this.fb.group({
+      this.formUpdate = this.fb.group({                                                                                                                                                                                                                                                                                                                                                                   = this.fb.group({
       id: [this.datos.id, [Validators.required]],
       nombre: [this.datos.nombre, [Validators.required]],
       descripcion: [this.datos.descripcion, [Validators.required]],
       precio: [this.datos.precio, [Validators.required, Validators.min(0)]],
       tipo_producto_id: [this.datos.tipo_producto_id, [Validators.required, Validators.min(0)]],
       estadoInt: [this.datos.estado_id, [Validators.required]],
-estado_id: [this.checked, [Validators.required]],
+      estado_id: [this.checked, [Validators.required]],
       clasificacionp: [this.datos.clasificacionp, [Validators.required]],
-    });
-      this.clasificacionp['clasificacionp'].setValue(1);
+    })
     if (this.estadoInt == 1) {
       this.checked = true;
-
     }
     }
-  }
+  } */
 
   public errorHandling = (control: string, error: string) => {
     return this.formUpdate.controls[control].hasError(error);
@@ -100,7 +127,7 @@ estado_id: [this.checked, [Validators.required]],
   submitForm() {
     console.log(this.formUpdate.value);
 
-    this.gService.create('/AutoCine/Producto', this.formUpdate.value).subscribe(
+    this.gService.update('/AutoCine/Producto', this.formUpdate.value).subscribe(
       (respuesta: any) => {
         this.producto = respuesta;
         this.router.navigate(['/producto/all'], {
