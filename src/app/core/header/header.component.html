@@ -18,7 +18,7 @@
   <a mat-button class="button" routerLink="/ubicacion" routerLinkActive="active"
     >Ubicaciones</a
   >
-  <button mat-button [matMenuTriggerFor]="mantenimiento">Mantenimientos</button>
+  <button mat-button [matMenuTriggerFor]="mantenimiento" *ngIf="currentUser?.user.tipo_usuario_id==1">Mantenimientos</button>
   <mat-menu #mantenimiento="matMenu"  yPosition="below">
 <!--     <button mat-button [matMenuTriggerFor]="productos">Productos</button>
     <button mat-button [matMenuTriggerFor]="peliculas">Peliculas</button> -->
@@ -30,51 +30,15 @@
       Productos Inactivos
     </button>
     <button mat-menu-item class="button2" routerLink="/pelicula/all" routerLinkActive="active">
-      Productos Activos
+      Peliculas Activos
     </button>
     <button mat-menu-item class="button2" routerLink="/pelicula/inactivo" routerLinkActive="active">
-      Productos Inactivos
+      Peliculas Inactivas
     </button>
     <button mat-menu-item class="button2" routerLink="/funcion" routerLinkActive="active">
       Funciones
     </button>
   </mat-menu>
-<!--   <mat-menu #productos="matMenu" yPosition="below">
-    <button
-      mat-menu-item
-      class="button2"
-      routerLink="/producto/all"
-      routerLinkActive="active"
-    >
-      Productos Activos
-    </button>
-    <button
-      mat-menu-item
-      class="button2"
-      routerLink="/producto/inactivo"
-      routerLinkActive="active"
-    >
-      Productos Inactivos
-    </button>
-  </mat-menu>
-  <mat-menu #peliculas="matMenu" yPosition="below">
-    <button
-      mat-menu-item
-      class="button2"
-      routerLink="/pelicula/all"
-      routerLinkActive="active"
-    >
-      Productos Activos
-    </button>
-    <button
-      mat-menu-item
-      class="button2"
-      routerLink="/pelicula/inactivo"
-      routerLinkActive="active"
-    >
-      Productos Inactivos
-    </button>
-  </mat-menu> -->
   <a mat-button class="button" routerLink="/pelicula" routerLinkActive="active"
     >Cartelera</a
   >

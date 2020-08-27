@@ -40,15 +40,26 @@
         <mat-cell *matCellDef="let fun"> {{ fun.cantidad }} </mat-cell>
       </ng-container>
 
+            <ng-container matColumnDef="ticket">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Tickets
+        </mat-header-cell>
+        <mat-cell *matCellDef="let fun">
+          <mat-chip-list aria-label="Tickets">
+          <mat-chip color="accent" *ngFor="let g of fun.ticket" selected>{{g.nombre}} </mat-chip>
+        </mat-chip-list>
+        </mat-cell>
+      </ng-container>
+
       <ng-container matColumnDef="disponible">
         <mat-header-cell *matHeaderCellDef mat-sort-header>
-          Venta
+          Preventa
         </mat-header-cell>
         <mat-cell *matCellDef="let fun">
           <div *ngIf="fun.disponible == 1">
             Disponible
           </div>
-          <div *ngIf="fun.disponible == 2">
+          <div *ngIf="fun.disponible == 0">
             No Disponible
           </div>
         </mat-cell>

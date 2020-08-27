@@ -6,6 +6,7 @@ import { ProductoShowComponent } from './producto-show/producto-show.component';
 import { ProductoIndexComponent } from './producto-index/producto-index.component';
 import { ProductoCreateComponent } from './producto-create/producto-create.component';
 import { ProductoUpdateComponent } from './producto-update/producto-update.component';
+import { ProductoInactivoComponent } from './producto-inactivo/producto-inactivo.component';
 import { ProductoAllComponent } from './producto-all/producto-all.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +21,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
-import { ProductoInactivoComponent } from './producto-inactivo/producto-inactivo.component';
 
 @NgModule({
   declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent, ProductoInactivoComponent],

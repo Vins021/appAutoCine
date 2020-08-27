@@ -1,35 +1,104 @@
 <div class="contenedor">
+  <div class="regresar">
+    <button
+      mat-stroked-button
+      class="mat-elevation-z8"
+      color="warn"
+      routerLink="/ubicacion"
+      routerLinkActive="active"
+    >
+      <mat-icon>reply</mat-icon> Regresar
+    </button>
+  </div>
 
   <mat-grid-list cols="3" rowHeight="100px">
-  <mat-grid-tile
-  [colspan]=1
-  [rowspan]=4
-      *ngFor="let funcion of datos">
-<mat-card class="card mat-elevation-z8">
-  <mat-card-header>
-    <h1>{{funcion.pelicula.nombre}}</h1>
-  </mat-card-header>
-  <mat-card-content>
-  <img  src="../../../assets/cartelera.jpg" width="120px" height="100px" alt="Ubicacion">
-<p>{{funcion.sinopsis}}</p>
-  <div>
-    <h4>{{funcion.ubicacion.nombre}}</h4>
+    <div *ngFor="let funcion of datos">
+      <mat-grid-tile
+        [colspan]="1"
+        [rowspan]="4.5"
+        *ngIf="currentUser == null && funcion.disponible == 0; else todos"
+      >
+        <mat-card class="card mat-elevation-z8">
+          <mat-card-header>
+            <h1>{{ funcion.pelicula.nombre }}</h1>
+          </mat-card-header>
+          <mat-card-content>
+            <img
+              src="../../../assets/cartelera.jpg"
+              width="120px"
+              height="100px"
+              alt="Ubicacion"
+            />
+            <p>{{ funcion.sinopsis }}</p>
+            <div>
+              <h4>Función:</h4>
+              <h3></h3>
+              <h6>{{ funcion.ubicacion.nombre }} - {{ funcion.fecha }}</h6>
+            </div>
+            <mat-chip-list aria-label="Generos">
+              <mat-chip
+                color="accent"
+                *ngFor="let g of funcion.pelicula.genero"
+                selected
+                >{{ g.nombre }}
+              </mat-chip>
+            </mat-chip-list>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-actions>
+            <a
+              mat-button
+              class="button"
+              [routerLink]="['/reservacion/', funcion.pelicula.id]"
+              routerLinkActive="active"
+              >Reservar</a
+            >
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+
+      <ng-template #todos>
+        <mat-grid-tile [colspan]="1" [rowspan]="4.5"
+        *ngIf="currentUser != null">
+          <mat-card class="card mat-elevation-z8">
+            <mat-card-header>
+              <h1>{{ funcion.pelicula.nombre }}</h1>
+            </mat-card-header>
+            <mat-card-content>
+              <img
+                src="../../../assets/cartelera.jpg"
+                width="120px"
+                height="100px"
+                alt="Ubicacion"
+              />
+              <p>{{ funcion.sinopsis }}</p>
+              <div>
+                <h4>Función:</h4>
+                <h3 *ngIf="funcion.disponible==1" style="color: crimson;">Preventa</h3>
+                <h6>{{ funcion.ubicacion.nombre }} - {{ funcion.fecha }}</h6>
+              </div>
+              <mat-chip-list aria-label="Generos">
+                <mat-chip
+                  color="accent"
+                  *ngFor="let g of funcion.pelicula.genero"
+                  selected
+                  >{{ g.nombre }}
+                </mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+              <a
+                mat-button
+                class="button"
+                [routerLink]="['/reservacion/', funcion.pelicula.id]"
+                routerLinkActive="active"
+                >Reservar</a
+              >
+            </mat-card-actions>
+          </mat-card>
+        </mat-grid-tile>
+      </ng-template>
     </div>
-     <mat-chip-list aria-label="Generos" >
-          <mat-chip color="accent" *ngFor="let g of funcion.pelicula.genero" selected>{{g.nombre}} </mat-chip>
-        </mat-chip-list>
-  </mat-card-content>
-     <mat-divider></mat-divider>
-      <mat-card-actions>
-        <a mat-button class="button" [routerLink]="['/reservacion/',funcion.pelicula.id]" routerLinkActive="active">Reservar</a>
-      </mat-card-actions>
-</mat-card>
-
-
-
-
-  </mat-grid-tile>
-</mat-grid-list>
-
-
+  </mat-grid-list>
 </div>

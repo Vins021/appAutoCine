@@ -22,8 +22,8 @@
 
       <!-- Ubicacion -->
       <mat-form-field>
-        <mat-label>Ubicaciones</mat-label>
-        <mat-select multiple formControlName="ubicacion_id">
+        <mat-label>Ubicación</mat-label>
+        <mat-select formControlName="ubicacion_id">
           <mat-option *ngFor="let ubi of ubicaciones" [value]="ubi.id">
             {{ ubi.nombre }}
           </mat-option>
@@ -35,7 +35,7 @@
           class="text-danger"
           *ngIf="errorHandling('ubicacion_id', 'required')"
         >
-          Ubicaciones Requeridas
+          Ubicación Requerida
         </small>
       </div>
 
@@ -43,7 +43,7 @@
       <mat-form-field class="example-full-width">
         <input
           matInput
-          type="datetime"
+          type="datetime-local"
           placeholder="Fecha"
           [formControl]="fecha"
           formControlName="fecha"
@@ -73,6 +73,17 @@
           La Cantidad es requerida
         </small>
       </div>
+            <!-- Clasificacion Producto -->
+      <mat-form-field>
+        <mat-label>Tickets</mat-label>
+        <mat-select multiple
+          formControlName="ticket"
+        >
+          <mat-option *ngFor="let tic of tickets" [value]="tic.id">
+            {{tic.nombre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
 
       <!-- Disponible -->
       <div>
@@ -81,7 +92,7 @@
           [checked]="checked"
           formControlName="disponible"
         >
-          Venta
+          Preventa
         </mat-slide-toggle>
       </div>
 
@@ -89,7 +100,7 @@
       <div>
         <mat-slide-toggle
           [color]="color"
-          [checked]="checked2"
+          [checked]="true"
           formControlName="estado_id"
         >
           Visible

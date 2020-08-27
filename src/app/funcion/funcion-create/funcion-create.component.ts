@@ -17,6 +17,7 @@ export class FuncionCreateComponent implements OnInit {
   error: any;
   ubicaciones: any;
   peliculas: any;
+  tickets: any;
   formulario: FormGroup;
   destroy$: Subject<boolean> = new Subject<boolean>();
   fecha = new FormControl('', [Validators.required]);
@@ -25,6 +26,7 @@ export class FuncionCreateComponent implements OnInit {
   estado_id = new FormControl('', [Validators.required]);
   pelicula_id = new FormControl('', [Validators.required]);
   ubicacion_id = new FormControl('', [Validators.required]);
+  ticket = new FormControl('', [Validators.required]);
   //Control toggle
   color: ThemePalette = 'accent';
   checked = true;
@@ -45,19 +47,36 @@ export class FuncionCreateComponent implements OnInit {
   }
 
   reactiveForm() {
+    this.getUbicaciones();
+    this.getPeliculas();
+    this.getTickets();
     this.formulario = this.fb.group({
       fecha: ['', [Validators.required]],
-      disponible: ['', [Validators.required]],
       cantidad: ['', [Validators.required, Validators.min(0)]],
       pelicula_id: ['', [Validators.required]],
       ubicacion_id: ['', [Validators.required]],
+      disponible: ['', [Validators.required]],
       estado_id: ['', [Validators.required]],
+      ticket: ['', [Validators.required]],
     });
-    this.getUbicaciones();
-    this.getPeliculas();
   }
 
   getUbicaciones() {
+    this.gService
+      .list('/AutoCine/Ubicacion')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(
+        (data: any) => {
+          console.log(data);
+          this.ubicaciones = data;
+        },
+        (error: any) => {
+          this.notificacion.mensaje(error.message, error.name, 'error');
+        }
+      );
+  }
+
+  getPeliculas() {
     this.gService
       .list('/AutoCine/Pelicula')
       .pipe(takeUntil(this.destroy$))
@@ -72,14 +91,14 @@ export class FuncionCreateComponent implements OnInit {
       );
   }
 
-  getPeliculas() {
+  getTickets() {
     this.gService
-      .list('/AutoCine/Ubicacion')
+      .list('/AutoCine/Ticket')
       .pipe(takeUntil(this.destroy$))
       .subscribe(
         (data: any) => {
           console.log(data);
-          this.ubicaciones = data;
+          this.tickets = data;
         },
         (error: any) => {
           this.notificacion.mensaje(error.message, error.name, 'error');
