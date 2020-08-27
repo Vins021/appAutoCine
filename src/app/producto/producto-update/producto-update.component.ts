@@ -96,29 +96,7 @@ export class ProductoUpdateComponent implements OnInit {
     }
   }
 
-  /*   reactiveForm() {
-    this.getTipo_producto();
-    this.getClasificacionp();
-    if(this.datos){
-      if (this.datos.estado_id == 1){
-        this.checked=true;
-      }
-      console.log(this.datos.tipo_producto_id);
-      this.formUpdate = this.fb.group({                                                                                                                                                                                                                                                                                                                                                                   = this.fb.group({
-      id: [this.datos.id, [Validators.required]],
-      nombre: [this.datos.nombre, [Validators.required]],
-      descripcion: [this.datos.descripcion, [Validators.required]],
-      precio: [this.datos.precio, [Validators.required, Validators.min(0)]],
-      tipo_producto_id: [this.datos.tipo_producto_id, [Validators.required, Validators.min(0)]],
-      estadoInt: [this.datos.estado_id, [Validators.required]],
-      estado_id: [this.checked, [Validators.required]],
-      clasificacionp: [this.datos.clasificacionp, [Validators.required]],
-    })
-    if (this.estadoInt == 1) {
-      this.checked = true;
-    }
-    }
-  } */
+
 
   public errorHandling = (control: string, error: string) => {
     return this.formUpdate.controls[control].hasError(error);

@@ -21,9 +21,19 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatSliderModule } from '@angular/material/slider';
 
 @NgModule({
-  declarations: [ProductoShowComponent, ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent, ProductoInactivoComponent],
+  declarations: [
+    ProductoShowComponent,
+    ProductoIndexComponent,
+    ProductoCreateComponent,
+    ProductoAllComponent,
+    ProductoUpdateComponent,
+    ProductoInactivoComponent,
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -39,7 +49,16 @@ import { MatDividerModule } from '@angular/material/divider';
     MatSlideToggleModule,
     MatPaginatorModule,
     MatDividerModule,
+    MatTooltipModule,
+    MatRadioModule,
+    MatSliderModule,
   ],
-  exports: [ProductoIndexComponent, ProductoCreateComponent, ProductoAllComponent, ProductoUpdateComponent, ProductoInactivoComponent],
+  exports: [
+    ProductoIndexComponent,
+    ProductoCreateComponent,
+    ProductoAllComponent,
+    ProductoUpdateComponent,
+    ProductoInactivoComponent,
+  ],
 })
 export class ProductoModule {}

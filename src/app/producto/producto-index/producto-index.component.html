@@ -1,29 +1,63 @@
 <mat-grid-list cols="4" class="cont">
-  <mat-grid-tile [colspan]=1 [rowspan]=1 *ngFor="let pro of datos">
+  <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
+    <mat-grid-tile [colspan]="1" [rowspan]="1" *ngFor="let pro of datos">
+      <mat-card class="card mat-elevation-z8">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ pro.nombre }}</mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+        <img
+          src="../../../assets/foodCine.png"
+          max-width="20px"
+          alt="{{ pro.nombre }}"
+        />
+        <mat-card-content>
+          <p>
+            {{ pro.descripcion }}
+          </p>
+          <h2><span>₡ </span>{{ pro.precio }}</h2>
+        </mat-card-content>
 
-    <mat-card class="card mat-elevation-z8">
-      <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>{{pro.nombre}}</mat-card-title>
-        <mat-card-subtitle></mat-card-subtitle>
-      </mat-card-header>
-      <img
-        src="../../../assets/foodCine.png"  max-width="20px"
-        alt="{{pro.nombre}}">
-      <mat-card-content>
-        <p>
-          {{pro.descripcion}}
-        </p>
-        <h2><span>₡ </span>{{pro.precio}}</h2>
-      </mat-card-content>
-     <mat-divider></mat-divider>
+        <!-- Estrellas -->
+      <!-- <mat-form-field class="example-full-width">
+        <input
+          matInput
+          formControlName="producto_id"
+          type="number"
+          [value]="producto_id"
+        />
+      </mat-form-field>
+        <div>
+          <span>
+            <mat-icon>star</mat-icon>
+          </span>
+        </div> -->
+        <mat-slider
+          formControlName="calificacion"
+          class=""
+          [max]="5"
+          [min]="1"
+          [step]="1"
+        >
+        </mat-slider>
+        <button mat-icon-button color="primary" type="submit">
+          <mat-icon>thumb_up</mat-icon>
+        </button>
 
-      <mat-card-actions>
-        <a mat-button class="button" [routerLink]="['/',pro.id]" routerLinkActive="active">Votar</a>
-        <a mat-button class="button" [routerLink]="['/producto',pro.id]" routerLinkActive="active">Info</a>
-        <!-- <a mat-button class="button" (click)="agregaCarrito(pro.id)">Agregar</a> -->
-      </mat-card-actions>
-    </mat-card>
+        <mat-divider></mat-divider>
 
-  </mat-grid-tile>
+        <mat-card-actions>
+          <a
+            mat-button
+            class="button"
+            [routerLink]="['/producto', pro.id]"
+            routerLinkActive="active"
+            >Info</a
+          >
+          <!-- <a mat-button class="button" (click)="agregaCarrito(pro.id)">Agregar</a> -->
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </form>
 </mat-grid-list>
