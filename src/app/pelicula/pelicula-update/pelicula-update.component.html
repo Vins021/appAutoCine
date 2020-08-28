@@ -1,0 +1,91 @@
+<div class="contenedor">
+  <div class="contenido">
+
+    <form
+      *ngIf="datos"
+      [formGroup]="formUpdate"
+      (ngSubmit)="submitForm()"
+      novalidate
+    >
+    <!--  ID -->
+
+    <input type="hidden" formControlName="id" [formControl]="id" />
+    <!-- Nombre -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Nombre" formControlName="nombre" />
+    </mat-form-field>
+<!--     <div>
+      <small class="text-danger" *ngIf="errorHandling('nombre', 'required')">
+        El nombre es requerido
+      </small>
+    </div> -->
+
+    <!-- Sinopsis -->
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Sinopsis" formControlName="sinopsis" />
+    </mat-form-field>
+<!--     <div>
+      <small class="text-danger" *ngIf="errorHandling('sinopsis', 'required')">
+        La Sinopsis es requerida
+      </small>
+    </div> -->
+
+    <!-- Clasificacion -->
+    <mat-form-field>
+      <mat-label>Clasificación</mat-label>
+      <mat-select formControlName="clasificacion_id">
+        <mat-option
+          *ngFor="let clasi of listaClasif"
+          selected
+          [value]="clasi.id"
+        >
+          {{ clasi.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  <!--   <div>
+      <small
+        class="text-danger"
+        *ngIf="errorHandling('clasificacion_id', 'required')"
+      >
+        Clasificacion Requerida
+      </small>
+    </div> -->
+
+    <!-- Genero -->
+    <mat-form-field>
+      <mat-label>Genero</mat-label>
+      <mat-select formControlName="genero" multiple>
+        <mat-option *ngFor="let clas of listaGener" selected [value]="clas.id">
+          {{ clas.nombre }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+   <!--  <div>
+      <small class="text-danger" *ngIf="errorHandling('genero', 'required')">
+        Clasificación Requerida
+      </small>
+    </div> -->
+    <div>
+      <mat-slide-toggle
+        [color]="color"
+        [checked]="checked"
+        formControlName="estado_id"
+      >
+        Activo
+      </mat-slide-toggle>
+    </div>
+
+    <!-- Submit -->
+    <div class="button-wrapper">
+      <button mat-flat-button color="primary" type="submit">Actualizar</button>
+    </div>
+
+
+
+</form>
+
+  </div>
+</div>

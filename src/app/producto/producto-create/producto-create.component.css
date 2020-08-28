@@ -1,8 +1,11 @@
 .contenedor{
-  margin: 30px;
-text-align: center;
+ margin: 30px;
+ text-align: center;
+ justify-content: center;
 }
-
+.regresar{
+  text-align: left;
+}
 
 
 

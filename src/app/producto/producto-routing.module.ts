@@ -7,7 +7,6 @@ import { ProductoCreateComponent } from './producto-create/producto-create.compo
 import { ProductoUpdateComponent } from './producto-update/producto-update.component';
 import { ProductoInactivoComponent } from './producto-inactivo/producto-inactivo.component';
 
-
 const routes: Routes = [
   { path: 'producto', component: ProductoIndexComponent },
   { path: 'producto/all', component: ProductoAllComponent },

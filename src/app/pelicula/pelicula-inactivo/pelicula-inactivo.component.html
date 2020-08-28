@@ -1,0 +1,40 @@
+<div class="contenedor">
+  <div class="nuevo">
+    <button mat-stroked-button class="mat-elevation-z8" color="warn" routerLink="/pelicula/create"
+      routerLinkActive="active">
+      <mat-icon>add</mat-icon> Nuevo
+    </button>
+  </div>
+  <div class="tabla">
+    <mat-table [dataSource]="datos" class="mat-elevation-z8">
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let pel"> {{ pel.nombre }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="sinopsis">
+        <mat-header-cell *matHeaderCellDef> Sinopsis </mat-header-cell>
+        <mat-cell *matCellDef="let pel"> {{ pel.sinopsis }} </mat-cell>
+      </ng-container>
+      
+      <ng-container matColumnDef="estado">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>
+          Estado
+        </mat-header-cell>
+        <mat-cell *matCellDef="let pel"> {{ pel.estado.nombre }} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="accion">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let pro">
+          <button mat-icon-button color="warn">
+            <mat-icon>edit</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </div>
+</div>

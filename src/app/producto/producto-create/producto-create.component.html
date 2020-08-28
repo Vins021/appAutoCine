@@ -1,5 +1,20 @@
 <div class="contenedor">
   <div class="contenido">
+
+
+    <div class="regresar">
+    <button
+      mat-stroked-button
+      class="mat-elevation-z8"
+      color="warn"
+      routerLink="/producto/all"
+      routerLinkActive="active"
+    >
+      <mat-icon>reply</mat-icon> Regresar
+    </button>
+  </div>
+
+
     <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
       <!-- Nombre -->
       <mat-form-field class="example-full-width">

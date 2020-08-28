@@ -83,10 +83,7 @@ export class ProductoUpdateComponent implements OnInit {
         nombre: [this.datos.nombre, [Validators.required]],
         descripcion: [this.datos.descripcion, [Validators.required]],
         precio: [this.datos.precio, [Validators.required, Validators.min(0)]],
-        tipo_producto_id: [
-          this.datos.tipo_producto_id,
-          [Validators.required, Validators.min(0)],
-        ],
+        tipo_producto_id: [ this.datos.tipo_producto_id,[Validators.required, Validators.min(0)]],
         estadoInt: [this.datos.estado_id, [Validators.required]],
         estado_id: [this.checked, [Validators.required]],
         //Asigna el Array de la DB para cargarlo en el Formulario

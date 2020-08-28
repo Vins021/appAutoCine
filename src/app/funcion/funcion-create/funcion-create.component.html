@@ -1,5 +1,19 @@
 <div class="contenedor">
   <div class="contenido">
+
+    <div class="regresar">
+    <button
+      mat-stroked-button
+      class="mat-elevation-z8"
+      color="warn"
+      routerLink="/funcion"
+      routerLinkActive="active"
+    >
+      <mat-icon>reply</mat-icon> Regresar
+    </button>
+  </div>
+
+
     <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
       <!-- Pelicula -->
       <mat-form-field>

@@ -1,0 +1,83 @@
+<div class="contenedor">
+  <div class="contenido">
+
+    <div class="regresar">
+    <button
+      mat-stroked-button
+      class="mat-elevation-z8"
+      color="warn"
+      routerLink="/pelicula/all"
+      routerLinkActive="active"
+    >
+      <mat-icon>reply</mat-icon> Regresar
+    </button>
+  </div>
+
+    <form [formGroup]="formulario" (ngSubmit)="submitForm()" novalidate>
+      <!--Nombre Pelicula-->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Nombre" [formControl]="nombre" formControlName="nombre" />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('nombre', 'required')">
+          El nombre es requerido
+        </small>
+      </div>
+
+      <!-- Sinopsis -->
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Sinopsis" [formControl]="sinopsis" formControlName="sinopsis" />
+      </mat-form-field>
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('sinopsis', 'required')">
+          La Sinopsis es requerida
+        </small>
+      </div>
+      <!-- Clasificiacion -->
+      <mat-form-field>
+        <mat-label>Clasificacion</mat-label>
+        <mat-select formControlName="clasificacion_id">
+          <mat-option *ngFor="let clas of clasPel" [value]="clas.id">
+            {{ clas.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('clasificacion_id', 'required')">
+          La clasificacion es Requerida
+        </small>
+      </div>
+
+      <!-- Genero -->
+      <mat-form-field>
+        <mat-label>Genero</mat-label>
+        <mat-select multiple formControlName="genero_id">
+          <mat-option *ngFor="let gen of generos" [value]="gen.id">
+            {{ gen.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div>
+        <mat-slide-toggle [color]="color" [checked]="checked" formControlName="estado_id">
+          Activo
+        </mat-slide-toggle>
+      </div>
+
+      <div>
+        <small class="text-danger" *ngIf="errorHandling('genero_id', 'required')">
+          El genero es Requerido
+        </small>
+      </div>
+
+      <!-- Submit -->
+      <div class="button-wrapper">
+        <button mat-flat-button color="primary">Crear</button>
+      </div>
+
+
+
+
+    </form>
+  </div>
+</div>

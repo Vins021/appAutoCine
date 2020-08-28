@@ -24,7 +24,8 @@ export class ProductoIndexComponent implements OnInit {
   autoTicks = false;
   showTicks = true;
   tickInterval = 1;
-  votacion:any;
+  thumbLabel = true;
+  votacion: any;
 
   constructor(
     public fb: FormBuilder,
@@ -60,8 +61,10 @@ export class ProductoIndexComponent implements OnInit {
 
   actualizaVoto(value: number) {
     if (value >= 1000) {
-      return Math.round(value / 1000);
+      return Math.round(value / 1000) + 'k';
     }
+
+    return value;
   }
 
   listaProducto() {
